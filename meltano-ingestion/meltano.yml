@@ -21,3 +21,14 @@ plugins:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+  - name: target-bigquery
+    variant: z3z1ma
+    pip_url: setuptools<80 git+https://github.com/z3z1ma/target-bigquery.git
+    config:
+      credentials_path: /Users/mudkip/Desktop/data-orchestration-497408-c204776e95ce.json
+      dataset: ingestion
+      denormalized: true
+      flattening_enabled: true
+      flattening_max_depth: 1
+      method: batch_job
+      project: data-orchestration-497408
