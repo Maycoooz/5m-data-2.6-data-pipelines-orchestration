@@ -1,0 +1,23 @@
+default_environment: dev
+project_id: 019e5e29-3d78-7a4a-b184-a5853cdc69c6
+environments:
+- name: dev
+- name: staging
+- name: prod
+python: python3.11
+plugins:
+  extractors:
+  - name: tap-github
+    variant: meltanolabs
+    pip_url: setuptools<80 meltanolabs-tap-github==1.23.2
+    config:
+      repositories:
+      - pandas-dev/pandas
+    select:
+    - releases.tag_name
+    - releases.body
+    - releases.published_at
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
